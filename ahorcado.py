@@ -1,5 +1,10 @@
 import random
 
+salir= True
+
+instrucciones = str("instrucciones...")
+
+
 escenario = \
     '''   
 ~~~~~~~~~|~
@@ -101,7 +106,7 @@ def jugar_al_ahorcado(diccionario):
     mostrar_tablero(tablero, letras_erroneas)
 
 
-def jugar_otra_vez():
+def opciones():
     return input('Deseas jugar otra vez (introduce s para sí o cualquier otra cosa para no): ')
 
 
@@ -112,8 +117,36 @@ if __name__ == '__main__':
 
     diccionario = ['casa', 'pescado', 'calamar', 'monigote', 'mundial']
 
-   # bienvenida()
+
     while True:
         jugar_al_ahorcado(diccionario)
-        if jugar_otra_vez() != 's': break
-   # despedida()
+        if opciones() != 's': break
+
+    while salir == True:  # Bucle PRINCIPAL.
+        print("""
+        ************************
+             - AHORCADO -
+        ************************ 
+         ¡BIENVENIDOS!
+        1- Instrucciones
+        2- ¡A jugar!
+        3- Salir 
+        """)
+
+        opcion = int(input("Ingrese la acción que desee realizar  "))
+        while opcion < 1 or opcion > 4:  # Cuando el usuario no elije algunas de las opciones que mostramos
+            print("Por favor ingrese alguna de las opciones mostradas:")
+            opcion = int(input())
+
+        if opcion == 1 or opcion == 2:  # controlar las indentaciones
+            if opcion == 1:
+                print(instrucciones)
+                input("Presione enter para continuar")
+
+            elif opcion == 2:  # empieza el juego
+                print("A jugar")
+                jugar_al_ahorcado()
+                input()
+
+        elif opcion == 3:  # elije la opción de sair
+            salir = False  # lo que decia antes

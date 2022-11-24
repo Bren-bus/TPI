@@ -49,20 +49,20 @@ while salir==True: #Bucle PRINCIPAL.
     3- Salir 
     """)
 
-    opcion = int(input("Ingrese la acción que desee realizar "))
-    while opcion<1 or opcion>4: #Cuando el usuario no elije algunas de las opciones que mostramos
-         print("Por favor ingrese alguna de las opciones mostradas:")
-         opcion = int(input())
+opcion = int(input("Ingrese la acción que desee realizar "))
+while opcion < 1 or opcion > 4:  # Cuando el usuario no elije algunas de las opciones que mostramos
+    print("Por favor ingrese alguna de las opciones mostradas:")
+    opcion = int(input())
 
-    if opcion == 1 or opcion == 2: #controlar las indentaciones
-        if opcion == 1:
-            print(instrucciones)
-            input("Presione enter para continuar")
+if opcion == 1 or opcion == 2:  # controlar las indentaciones
+    if opcion == 1:
+        print(instrucciones)
+        input("Presione enter para continuar")
 
-        elif opcion == 2: #empieza el juego
-            print("A jugar")
-            print("Piensa un continente")
-            input()
+    elif opcion == 2:  # empieza el juego
+        print("A jugar")
+        print("Piensa un continente")
+        input()
 
-    elif opcion == 3: #elije la opción de sair
-        salir = False #lo que decia antes
+elif opcion == 3:  # elije la opción de sair
+    salir = False  # lo que decia antes
