@@ -114,7 +114,7 @@ if __name__ == '__main__':
 
 
     while True:
-        jugar_al_ahorcado(diccionario)
+        jugar_al_ahorcado(palabras)
         if opciones() != 's': break
 
     while salir == True:  # Bucle PRINCIPAL.
