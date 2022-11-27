@@ -1,0 +1,20 @@
+
+INSTRUCCIONES :
+Dos personas deben jugar como contrincantes. 
+El primer jugador selecciona una casilla marcandola con  X.
+El segundo jugador selecciona una casilla marcandola con 0.  
+ 
+Hay hasta 9 turnos disponibles para cada jugador, el objetivo del juego es completar una fila, columna o diagonal con el elemento que elegimos.
+Si termina la partida y no hay ganador, se declara empate. 
+Los jugadores deben elegir un casillero ingresando un número del 1 al 9, de acuerdo a su posición en el tablero: 
+[1][2][3]
+[4][5][6]
+[7][8][9]
+Si el jugador 1 elige la opción "2" el tablero se verá así 
+[""][X][""]
+[""][""][""]
+[""][""][""]
+Y si en el proximo turno el jugador 2 selecciona ingresa "3" el tablero se verá así : 
+[""][X][0]
+[""][""][""]
+[""][""][""]
