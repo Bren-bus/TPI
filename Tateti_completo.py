@@ -1,8 +1,8 @@
 fila1 = []
 fila2 = []
 fila3= []
-posicion= []
 elemento = ["'''"]
+posicion = []
 
 for i in range(0, 3, 1):
         fila1.append(elemento)
@@ -39,7 +39,7 @@ while (jugadas< 9):
     while seleccionJugador1 in posicion[0:9]:
         print("SELECCIÓN NO VÁLIDA. Intenta de nuevo.")
         seleccionJugador1 = input("Ingrese la posición que desea elegir")
-    while int(seleccionJugador1) > 9 or int(seleccionJugador1) <0:
+    while int(seleccionJugador1) > 9 or int(seleccionJugador1) <1:
         print("SELECCIÓN NO VÁLIDA. Intenta de nuevo.")
         seleccionJugador1 = input("Ingrese la posición que desea elegir")
 
@@ -115,7 +115,7 @@ while (jugadas< 9):
         print("SELECCIÓN NO VÁLIDA. Intenta de nuevo.")
         mostrarTablero(fila1, fila2, fila3)
         seleccionJugador2 = input("Ingrese la posición que desea elegir")
-    while int(seleccionJugador2) > 9 or int(seleccionJugador2) < 0:
+    while int(seleccionJugador2) > 9 or int(seleccionJugador2) < 1:
         print("SELECCIÓN NO VÁLIDA. Intenta de nuevo.")
         mostrarTablero(fila1, fila2, fila3)
         seleccionJugador2 = input("Ingrese la posición que desea elegir")
