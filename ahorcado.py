@@ -2,7 +2,7 @@ import random
 
 salir= True
 
-instrucciones = str("instrucciones...")
+instrucciones = str("INSTRUCCIONES:\n 1-El jugador 1 (programa) piensa una palabra y coloca tantas espacios (guiones) como letras tenga ésta y el jugador 2 tiene que adivinarla diciendo letras.\n2-El jugador 2 dice una letra y el programa revisa si la letra se encuentra en la palabra que ha pensado.\n3-Si la letra está la anota en el lugar que corresponda de las rayas que ha puesto previamente. Si la letra no está escribe la letra para que el jugador 2 sepa las letras que ha dicho y dibuja una parte del pez del ahorcado.\n4-Se ha de mostrar un anzuelo sin el pez y un espacio para poner las letras que se van diciendo.  \n4-El pez que se va dibujando tiene siete partes, por lo que el jugador tiene siete opciones de fallar.\n5-Gana el jugador si consigue descifrar la palabra antes de que el muñeco este completo.")
 
 
 escenario = \
@@ -13,18 +13,12 @@ escenario = \
 ~~~~~~~~~~~   
 '''
 
-simbolos = '><(((º>'
+simbolos = '><(((º>' #los símbolos que se irán reemplazando en las posiciones numeradas en "escenario"
 
 
-def bienvenida():
-    print()
-    print("Te doy la bienvenida al juego del ahorcado ")
-    print()
-
-
-# paso 1
-def inicializar_juego(diccionario):
-    palabra = random.choice(diccionario).lower()
+# paso 1. Declaro una función encargada de seleccionar una de las palabras contenidas en el array "palabras", de manera aleatoria. Se generan los espacios donde irán las letras según la longitud de la palabra.
+def inicializar_juego(palabras):
+    palabra = random.choice(palabras).lower()
     tablero = ['_'] * len(palabra)
     return tablero, palabra, []
 
@@ -100,12 +94,13 @@ def jugar_al_ahorcado(diccionario):
             print('¡Felicidades, lo has logrado!')
             break
     else:
-        print(f'¡Lo siento! ¡perdiste! La palabra a adivinar era {palabra}.')
+        print('Perdiste! La palabra a adivinar era {palabra}.')
         mostrar_escenario(len(letras_erroneas))  # paso 7
 
     mostrar_tablero(tablero, letras_erroneas)
 
 
+#Opción de volver al menú del juego/menú principal
 def opciones():
     return input('Deseas jugar otra vez (introduce s para sí o cualquier otra cosa para no): ')
 
@@ -115,7 +110,7 @@ def opciones():
 
 if __name__ == '__main__':
 
-    diccionario = ['casa', 'pescado', 'calamar', 'monigote', 'mundial']
+    palabras = ['casa', 'pescado', 'calamar', 'monigote', 'mundial']
 
 
     while True:
