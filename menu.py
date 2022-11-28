@@ -400,7 +400,7 @@ def juego_dos():
 
 def juego_tres():
 
-    instrucciones = str('instrucciones..')
+    instrucciones = str('INSTRUCCIONES:\nDos personas deben jugar como contrincantes. \n El primer jugador selecciona una casilla marcandola con  X.\n El segundo jugador selecciona una casilla marcandola con 0.\n Hay hasta 9 turnos disponibles para cada jugador, el objetivo del juego es completar una fila, columna o diagonal con el elemento que elegimos.\n Si termina la partida y no hay ganador, se declara empate. \n Los jugadores deben elegir un casillero ingresando un número del 1 al 9, de acuerdo a su posición en el tablero: \n [1][2][3]\n [4][5][6]\n [7][8][9]\n Si el jugador 1 elige la opción "2" el tablero se verá así \n [""][X][""]\n [""][""][""]\n [""][""][""]\n Y si en el proximo turno el jugador 2 selecciona ingresa "3" el tablero se verá así : \n [""][X][0]\n [""][""][""]\n [""][""][""]..')
 
     salir = True
 
@@ -411,6 +411,8 @@ def juego_tres():
         fila2 = []
         fila3 = []
         elemento = ["'''"]
+        posicion = []
+
         for i in range(0, 3, 1):
             fila1.append(elemento)
         for j in range(0, 3, 1):
@@ -425,6 +427,7 @@ def juego_tres():
 
         jugador1 = input("Jugador 1 (X), ingrese su nombre")
         jugador2 = input("Jugador 2 (O), ingrese su nombre")
+        mostrarTablero(fila1, fila2, fila3)
 
         ganador = False
 
@@ -433,10 +436,19 @@ def juego_tres():
 
         # Ciclo para que el jugador elija la posición que desea elegir. Se repite 9 veces, es la cantidad de turnos entre los dos jugadores
         while (jugadas < 9):
-
             print(jugador1)
             seleccionJugador1 = input("Ingrese la posicion que desea elegir")
-            jugadas = jugadas + 1
+
+            while seleccionJugador1 in posicion[0:9]:
+                print("SELECCIÓN NO VÁLIDA. Intenta de nuevo.")
+                seleccionJugador1 = input("Ingrese la posición que desea elegir")
+            while int(seleccionJugador1) > 9 or int(seleccionJugador1) < 1:
+                print("SELECCIÓN NO VÁLIDA. Intenta de nuevo.")
+                seleccionJugador1 = input("Ingrese la posición que desea elegir")
+
+            if seleccionJugador1 != posicion[0:9]:
+                posicion.append(seleccionJugador1)
+                jugadas = jugadas + 1
             if seleccionJugador1 == "1":
                 fila1[0] = "[X]"
             if seleccionJugador1 == "2":
@@ -496,7 +508,20 @@ def juego_tres():
                 break
             print(jugador2)
             seleccionJugador2 = input("Ingrese posicion que desea elegir")
-            jugadas = jugadas + 1
+
+            while (seleccionJugador2 in posicion[0:9]):
+                print("SELECCIÓN NO VÁLIDA. Intenta de nuevo.")
+                mostrarTablero(fila1, fila2, fila3)
+                seleccionJugador2 = input("Ingrese la posición que desea elegir")
+            while int(seleccionJugador2) > 9 or int(seleccionJugador2) < 1:
+                print("SELECCIÓN NO VÁLIDA. Intenta de nuevo.")
+                mostrarTablero(fila1, fila2, fila3)
+                seleccionJugador2 = input("Ingrese la posición que desea elegir")
+
+            if seleccionJugador2 != posicion[0:9]:
+                posicion.append(seleccionJugador2)
+                jugadas = jugadas + 1
+
             if seleccionJugador2 == "1":
                 fila1[0] = "[O]"
             if seleccionJugador2 == "2":
@@ -552,7 +577,7 @@ def juego_tres():
                 break
             if ganador == True:
                 break
-            if jugadas == 8 and ganador == False:
+            if jugadas == 9 and ganador == False:
                 print("¡Declaro empate!")
                 break
 
